@@ -192,6 +192,12 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    IconButton(onPressed: () {
+                      if (context.read<FirebaseProvider>().signOut()) {
+                        Navigator.pushAndRemoveUntil(context,
+                            NoAnimationRouteBuilder(builder: (builder) => SignIn()), (route)=>false);
+                      };
+                    }, icon: Icon(Icons.menu)),
                     MyLogo(size: _screenheight * 0.065),
                     SizedBox(width: 20,),
                     Text(
