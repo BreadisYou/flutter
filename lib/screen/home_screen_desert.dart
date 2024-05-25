@@ -1,11 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 import 'package:sogra/common/NoAnimation.dart';
 import 'package:sogra/common/logo.dart';
 import 'package:sogra/constant/colors.dart';
 import 'package:sogra/constant/font.dart';
 import 'package:sogra/main.dart';
+import 'package:sogra/provider/firebase_provider.dart';
+import 'package:sogra/repository/firebase_repository.dart';
 import 'package:sogra/screen/home_screen_bread.dart';
+import 'package:sogra/screen/review_page.dart';
 import 'package:sogra/widget/image_slider.dart';
 
 class HomeScreenDesert extends StatefulWidget {
@@ -17,6 +22,47 @@ class HomeScreenDesert extends StatefulWidget {
 
 class _HomeScreenDesertState extends State<HomeScreenDesert> {
 
+  Image getImage(String? imagePath) {
+    if (imagePath != null && imagePath.length > 10) {
+      return Image.network(imagePath);
+    }
+    return Image.asset('assets/logo.png');
+  }
+
+  dynamic _fetchData(BuildContext context) async {
+    final FirebaseFirestore firebaseFirestore = context.read<FirebaseRepository>().firebaseFirestore;
+
+    List<dynamic> res = [];
+    var data = firebaseFirestore.collection("best").doc("dessert").get();
+    List<String> filter = List.empty(growable: true);
+    await data.then((value) {
+      for (var e in value.data()?['docs']) {
+        filter.add(e);
+      }
+    }); // weekly elements
+    await firebaseFirestore.collection("dessert")
+        .where("doc", whereIn: filter)
+        .get()
+        .then((e) {
+      for (var element in e.docs) {
+        res.add(element);
+      }
+    }); // get items from elements
+    List<Widget> children = List.empty(growable: true);
+    for (var m in res) {
+      children.add(
+        Column(
+          children: [
+            SizedBox(height: 125,child: getImage(m['imagePath'])),
+            Center(child: Text(m['name'], style: GmarketSans24)),
+          ],
+        )
+      );
+    } // create widgets from items
+
+    return children;
+  }
+
   void showCustomDialog(BuildContext context) {
 
     final double _screenheight = MediaQuery
@@ -27,7 +73,6 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
         .of(context)
         .size
         .width;
-
 
     showDialog(
       context: context,
@@ -258,7 +303,7 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    //
+                    Navigator.push(context, NoAnimationRouteBuilder(builder: (builder) => ReviewPage(type: "dessert")));
                   },
                   child: Container(
                     height: _screenheight * 0.11,
@@ -294,12 +339,18 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                         borderRadius: BorderRadius.circular(20),
                         color: whiteColor,
                       ),
-                      child: ImageSlider(
-                        height: _screenheight * 0.22, // 부모 Container와 동일
-                        width: _screenwidth / 2 - 30, // 부모 Container와 동일
-                        children: [ // TODO Storage 연동
-                          Image.network('https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/best%2Fdessert_2024_4.png?alt=media&token=90120b6b-6225-4465-91b1-11b7324c0ebd'),
-                        ],
+                      child: FutureBuilder(
+                        future: _fetchData(context),
+                        builder: (BuildContext builder, AsyncSnapshot<dynamic> snapshot) {
+                          if (snapshot.hasData == false || snapshot.hasError) {
+                            return const CircularProgressIndicator();
+                          }
+                          return ImageSlider(
+                            height: _screenheight * 0.22, // 부모 Container와 동일
+                            width: _screenwidth / 2 - 30, // 부모 Container와 동일
+                            children: snapshot.data,
+                          );
+                        },
                       ),
 
                     ),

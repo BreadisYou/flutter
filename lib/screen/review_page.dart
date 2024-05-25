@@ -40,7 +40,7 @@ class _ReviewPageState extends State<ReviewPage> {
       for (var e in value.docs[value.docs.length-1].data()['docs']) {
         filter.add(e);
       }
-    });
+    }); // weekly elements
     await firebaseFirestore.collection(widget.type)
         .where("doc", whereIn: filter)
         .get()
@@ -48,7 +48,7 @@ class _ReviewPageState extends State<ReviewPage> {
       for (var element in e.docs) {
         res.add(element);
       }
-    });
+    }); // get items from elements
     List<ReviewCard> children = List.empty(growable: true);
     for (var m in res) {
       children.add(
@@ -57,7 +57,7 @@ class _ReviewPageState extends State<ReviewPage> {
               store: m['store'], name: m['name'],
           )
       );
-    }
+    } // create widgets from items
     return children;
   }
 

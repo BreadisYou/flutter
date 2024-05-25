@@ -31,7 +31,7 @@ void main() async {
         ),
       ],
       child: MaterialApp(
-        home: ReviewPage(type: "bread",),
+        home: Main(),
       ),
   ));
 }
