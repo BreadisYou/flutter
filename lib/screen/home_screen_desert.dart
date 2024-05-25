@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:sogra/common/NoAnimation.dart';
 import 'package:sogra/common/logo.dart';
 import 'package:sogra/constant/colors.dart';
 import 'package:sogra/constant/font.dart';
@@ -95,7 +96,7 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
+                              NoAnimationRouteBuilder(
                                 builder: (context) => HomeScreenBread(),
                               ),
                             );
