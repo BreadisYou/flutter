@@ -65,7 +65,6 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-
                 Column(
                   children: [
                     Container(
@@ -265,27 +264,32 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                     ],
                   ),
                 ),
-                Container(
-                  height: _screenheight * 0.11,
-                  width: _screenwidth - 30,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: whiteColor,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/review.png',
-                        width: 50,
-                        height: 50,
-                      ),
-                      SizedBox(width: 20,),
-                      Text(
-                        "리뷰 남기기",
-                        style: GmarketSans24,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    //
+                  },
+                  child: Container(
+                    height: _screenheight * 0.11,
+                    width: _screenwidth - 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: whiteColor,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/review.png',
+                          width: 50,
+                          height: 50,
+                        ),
+                        SizedBox(width: 20,),
+                        Text(
+                          "리뷰 남기기",
+                          style: GmarketSans24,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Row(
@@ -306,14 +310,24 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                         ],
                       ),
                     ),
-                    Container(
-                      height: _screenheight * 0.22,
-                      width: _screenwidth / 2 - 30,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: whiteColor,
+                    GestureDetector(
+                      onTap: () {
+                        //
+                      },
+                      child: Container(
+                        height: _screenheight * 0.22,
+                        width: _screenwidth / 2 - 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: whiteColor,
+                        ),
+                        child: Image.asset(
+                          'assets/map.png',
+                          width: 50,
+                          height: 50,
+                        ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ],
