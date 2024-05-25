@@ -10,6 +10,7 @@ import '../common/logo.dart';
 import '../common/password_field.dart';
 import '../common/text_form_field.dart';
 import '../common/title.dart';
+import '../constant/colors.dart';
 import '../main.dart';
 import '../provider/firebase_provider.dart';
 
@@ -27,17 +28,11 @@ class SignIn extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              const SizedBox(
-                height: 30,
-              ),
+              const SizedBox(height: 30,),
               const MyLogo(size: 90),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10,),
               const MyTitle(fontSize: 50),
-              const SizedBox(
-                height: 40,
-              ),
+              const SizedBox(height: 40,),
               MyTextFormField(
                 onSaved: (value) {
                   userEmail = value!;
@@ -48,23 +43,19 @@ class SignIn extends StatelessWidget {
                 content: "이메일",
                 keyboardType: TextInputType.emailAddress,
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20,),
               PasswordField(onSaved: (value) {
                 userPassword = value!;
               }, onChanged: (value) {
                 userPassword = value!;
               }),
-              const SizedBox(
-                height: 40,
-              ),
+              const SizedBox(height: 40,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Constant.COLOR,
+                      backgroundColor: colorLightBrown,
                     ),
                     onPressed: () async {
                       bool logging = await context.read<FirebaseProvider>().signIn(userEmail, userPassword);
@@ -81,7 +72,7 @@ class SignIn extends StatelessWidget {
                   ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Constant.COLOR,
+                        backgroundColor: colorLightBrown,
                       ),
                       onPressed: () {
                         Navigator.push(
