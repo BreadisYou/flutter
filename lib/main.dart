@@ -32,7 +32,7 @@ void main() async {
         ),
       ],
       child: MaterialApp(
-        home: StoreIntro(),
+        home: HomeScreenBread(),
       ),
   ));
 }

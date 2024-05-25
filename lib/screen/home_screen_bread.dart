@@ -10,6 +10,7 @@ import 'package:sogra/main.dart';
 import 'package:sogra/provider/firebase_provider.dart';
 import 'package:sogra/widget/image_slider.dart';
 
+import '../widget/mapdialog.dart';
 import 'home_screen_desert.dart';
 
 class HomeScreenBread extends StatefulWidget {
@@ -21,6 +22,15 @@ class HomeScreenBread extends StatefulWidget {
 
 class _HomeScreenBreadState extends State<HomeScreenBread> {
   bool subscribe = false;
+
+  void _showMapDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return MapDialog();
+      },
+    );
+  }
   void showCustomDialog(BuildContext context) {
 
     final double _screenheight = MediaQuery
@@ -131,7 +141,7 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
 
                 GestureDetector(
                   onTap: () {
-                    //showCustomDialog(context);
+                    _showMapDialog(context);
                   },
                   child: Container(
                     height: 60,
