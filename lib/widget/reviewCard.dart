@@ -27,11 +27,11 @@ class ReviewCard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.network( //TODO storage 연동
-              '이미지 주소',
-              height: 100,
-              width: 100,
-            ), //TODO IMAGE size 조절 필요 height width 조절 해야함
+            SizedBox(
+              width: 50,
+              height: 50,
+              child: image,
+            ),
             Text(
               '$store-$name',
               style: GmarketSans12,
