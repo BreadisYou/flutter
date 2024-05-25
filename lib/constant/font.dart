@@ -13,6 +13,14 @@ TextStyle GmarketSans12 = const TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+TextStyle GmarketSans12gr = const TextStyle(
+  fontFamily: "GmarketSans",
+  color: Color(0xff807E79),
+  fontSize: 12,
+  fontWeight: FontWeight.bold,
+);
+
+
 TextStyle GmarketSans24 = const TextStyle(
   fontFamily: "GmarketSans",
   color: Colors.black,

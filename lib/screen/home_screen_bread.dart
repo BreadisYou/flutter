@@ -42,6 +42,11 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     MyLogo(size: _screenheight * 0.065),
+                    SizedBox(),
+                    Text(
+                      "빵셔틀",
+                      style: GmarketSans12gr,
+                    ),
                   ],
                 ),
                 Text(
@@ -116,8 +121,8 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                         height: 20,
                       ),
                       Text(
-                        "리뷰하기",
-                        style: GmarketSans12,
+                        "리뷰 남기기",
+                        style: GmarketSans24,
                       ),
                     ],
                   ),
