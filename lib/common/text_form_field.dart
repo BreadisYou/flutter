@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constant/colors.dart';
+
 class MyTextFormField extends StatelessWidget {
 
   final FormFieldSetter<String> onSaved;
@@ -26,17 +28,18 @@ class MyTextFormField extends StatelessWidget {
             labelText: content,
             hintText: content,
             focusedBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
-              borderSide: BorderSide(width: 1, color: Colors.deepPurpleAccent),
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderSide: BorderSide(width: 1, color: colorLightBrown),
             ),
             enabledBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
-              borderSide: BorderSide(width: 1, color: Colors.blueAccent),
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderSide: BorderSide(width: 1, color: colorLightBrown),
             ),
             border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            )
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+            ),
         ),
+        cursorColor: colorLightBrown,
         keyboardType: keyboardType,
       ),
     );

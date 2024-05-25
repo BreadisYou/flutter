@@ -11,6 +11,7 @@ import '../common/logo.dart';
 import '../common/password_field.dart';
 import '../common/text_form_field.dart';
 import '../common/title.dart';
+import '../constant/colors.dart';
 import '../provider/firebase_provider.dart';
 import '../screen/home_screen_bread.dart';
 
@@ -93,7 +94,7 @@ class SignUp extends StatelessWidget {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Constant.COLOR,
+                  backgroundColor: colorLightBrown,
                 ),
                 onPressed: () async {
                   bool logging = await context.read<FirebaseProvider>().signUp(userName, userEmail, userPassword);
