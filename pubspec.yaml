@@ -16,6 +16,7 @@ dependencies:
   firebase_auth: ^4.19.6
   cloud_firestore: ^4.17.4
   carousel_slider: ^4.2.1
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:
@@ -30,7 +31,8 @@ flutter:
 
   assets:
     - assets/logo.png
-    - assets/image/
+    - assets/map.png
+    - assets/review.png
 
   fonts:
     - family: GmarketSans
