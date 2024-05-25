@@ -78,9 +78,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    ElevatedButton(onPressed: onPressed, child: Image(
-
-                    ))
+                    ElevatedButton(
+                      onPressed: onPressed,
+                      child: Image.asset(
+                        'assets/desert.png',
+                        width: 100,
+                        height: 100,
+                      ),
+                    ),
                   ],
                 ),
               ],
