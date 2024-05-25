@@ -61,9 +61,9 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                       Positioned(
                         child: Container(
                           height: _screenheight * 0.33,
-                          width: _screenwidth - 30, //TODO firebase에서 Image 가져와야함
-                          child: Image.asset(
-                            'assets/image/firebase_image.png',
+                          width: _screenwidth - 20, //TODO firebase에서 Image 가져와야함
+                          child: Image.network( // 임시 이미지 링크
+                            'https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/bread_2024_4.png?alt=media&token=401f4532-518d-4c0f-b5d1-1068209e9037',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -98,8 +98,8 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                               ),
                             );
                           },
-                          child: Image.asset(
-                            'assets/image/desert.png',
+                          child: Image.network(
+                            'https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/dessert_button.png?alt=media&token=bf08d5a5-5ffb-49ba-860f-49da87e1207c',
                             width: 20,
                             height: 20,
                           ),
