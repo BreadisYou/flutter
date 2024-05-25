@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sogra/auth/signup.dart';
+import 'package:sogra/screen/home_screen_bread.dart';
 
 import '../common/NoAnimation.dart';
 import '../common/constant.dart';
@@ -9,9 +11,9 @@ import '../common/password_field.dart';
 import '../common/text_form_field.dart';
 import '../common/title.dart';
 import '../main.dart';
+import '../provider/firebase_provider.dart';
 
 class SignIn extends StatelessWidget {
-  final _authentication = FirebaseAuth.instance;
 
   String userEmail = '';
   String userPassword = '';
@@ -65,26 +67,13 @@ class SignIn extends StatelessWidget {
                       backgroundColor: Constant.COLOR,
                     ),
                     onPressed: () async {
-                      try {
-                        final UserCredential newUser =
-                            await _authentication.signInWithEmailAndPassword(
-                                email: userEmail, password: userPassword);
-
-                        if (newUser.user != null) {
-                          Navigator.pushAndRemoveUntil(
-                            context,
-                            NoAnimationRouteBuilder(
-                                builder: (context) => Main()),
-                            (route) => false,
-                          );
-                        }
-                      } catch (e) {
-                        print(e);
-                        ScaffoldMessenger.of(context)
-                            .showSnackBar(const SnackBar(
-                          content: Text("이메일과 비밀번호를 확인하세요."),
-                          backgroundColor: Colors.blue,
-                        ));
+                      bool logging = await context.read<FirebaseProvider>().signIn(userEmail, userPassword);
+                      if (logging) {
+                        Navigator.pushAndRemoveUntil(context, NoAnimationRouteBuilder(builder: (context) => HomeScreenBread()), (route) => false);
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                            content: Text("이메일과 비밀번호를 확인하세요."),
+                        backgroundColor: Colors.yellow,));
                       }
                     },
                     child: const Text("로그인",
