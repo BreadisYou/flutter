@@ -26,17 +26,17 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
         .of(context)
         .size
         .width;
-
     return Scaffold(
-      backgroundColor: colorApricot,
+      backgroundColor: colorApricotWhite,
       body: SafeArea(
         child: Container(
-          color: colorApricot,
+          color: colorApricotWhite,
           height: _screenheight,
           width: _screenwidth,
           child: Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(15),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -50,7 +50,7 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                 ),
                 SizedBox(
                   height: _screenwidth * 0.33,
-                  width: _screenwidth - 20,
+                  width: _screenwidth - 30,
                   child: Stack(
                     children: [
                       Positioned(
@@ -68,7 +68,7 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                         left: 0,
                         child: Container(
                           height: _screenheight * 0.07,
-                          width: _screenwidth - 20,
+                          width: _screenwidth - 30,
                           color: Colors.black..withOpacity(0.5),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -102,6 +102,40 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                       ),
                     ],
                   ),
+                ),
+                Container(
+                  height: _screenheight * 0.11,
+                  width: _screenwidth - 30,
+                  color: colorLightBrown,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/review.png',
+                        width: 20,
+                        height: 20,
+                      ),
+                      Text(
+                        "리뷰하기",
+                        style: GmarketSans12,
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      height: _screenheight * 0.22,
+                      width: _screenwidth / 2 - 30,
+                      color: const Color(0xffFFEFB5),
+                    ),
+                    Container(
+                      height: _screenheight * 0.22,
+                      width: _screenwidth / 2 - 30,
+                      color: const Color(0xffDBFFBE),
+                    )
+                  ],
                 )
               ],
             ),
