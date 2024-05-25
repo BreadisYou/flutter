@@ -16,6 +16,146 @@ class HomeScreenDesert extends StatefulWidget {
 }
 
 class _HomeScreenDesertState extends State<HomeScreenDesert> {
+
+  void showCustomDialog(BuildContext context) {
+
+    final double _screenheight = MediaQuery
+        .of(context)
+        .size
+        .height;
+    final double _screenwidth = MediaQuery
+        .of(context)
+        .size
+        .width;
+
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: whiteColor,
+          content: SizedBox(
+            height: _screenheight * 0.8,
+            width: _screenwidth * 0.8,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(width: 0,),
+                    IconButton(
+                      icon: Icon(Icons.close),
+                      onPressed: () {
+                        Navigator.of(context).pop(); // Close the dialog
+                      },
+                    ),
+                  ],
+                ),
+                Text(
+                  '이주의 디저트',
+                  style: TextStyle(
+                    fontFamily: "GmarketSans",
+                    color: colorLightBrown,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                Column(
+                  children: [
+                    Container(
+                      height: 70,
+                      width: 300,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: greyColor,
+                      ),
+                      child: Center(
+                        child: Text(
+                          '나소진 원픽 망고시루 X 1',
+                          style: GmarketSans24,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    Container(
+                      height: 70,
+                      width: 300,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: greyColor,
+                      ),
+                      child: Center(
+                        child: Text(
+                          '김동효 최애 마카롱 X 1',
+                          style: GmarketSans24,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    Container(
+                      height: 70,
+                      width: 300,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: greyColor,
+                      ),
+                      child: Center(
+                        child: Text(
+                          '쌈@뽕한 케이크 X 1',
+                          style: GmarketSans24,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    Container(
+                      height: 70,
+                      width: 300,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: greyColor,
+                      ),
+                      child: Center(
+                        child: Text(
+                          '성심당 옆가게 디저트 X 1',
+                          style: GmarketSans24,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
+                GestureDetector(
+                  onTap: () {
+                    //showCustomDialog(context);
+                  },
+                  child: Container(
+                    height: 60,
+                    width: 300,
+                    decoration: BoxDecoration(
+                      color: colorLightBrown,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "디저트 구독하기",
+                          style: GmarketSans24,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final double _screenheight = MediaQuery
@@ -28,10 +168,10 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
         .width;
 
     return Scaffold(
-      backgroundColor: colorApricotWhite,
+      backgroundColor: greyColor,
       body: SafeArea(
         child: Container(
-          color: colorApricotWhite,
+          color: greyColor,
           height: _screenheight,
           width: _screenwidth,
           child: Padding(
@@ -74,18 +214,23 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                       Positioned(
                         bottom: 0,
                         left: 0,
-                        child: Container(
-                          width: _screenwidth - 30,
-                          height: _screenheight * 0.07,
-                          color: Colors.black.withOpacity(0.2),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "구독하기",
-                                style: GmarketSans24,
-                              ),
-                            ],
+                        child: GestureDetector(
+                          onTap: () {
+                            showCustomDialog(context);
+                          },
+                          child: Container(
+                            height: _screenheight * 0.07,
+                            width: _screenwidth - 30,
+                            color: Colors.black.withOpacity(0.2),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "구독하기",
+                                  style: GmarketSans24,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -116,16 +261,17 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                   width: _screenwidth - 30,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: colorLightBrown,
+                    color: whiteColor,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
                         'assets/review.png',
-                        width: 20,
-                        height: 20,
+                        width: 50,
+                        height: 50,
                       ),
+                      SizedBox(width: 20,),
                       Text(
                         "리뷰 남기기",
                         style: GmarketSans24,
@@ -141,7 +287,7 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                       width: _screenwidth / 2 - 30,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: const Color(0xffFFEFB5),
+                        color: whiteColor,
                       ),
                       child: ImageSlider(
                         height: _screenheight * 0.22, // 부모 Container와 동일
@@ -157,7 +303,7 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                       width: _screenwidth / 2 - 30,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: const Color(0xffDBFFBE),
+                        color: whiteColor,
                       ),
                     )
                   ],
