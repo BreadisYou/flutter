@@ -51,10 +51,10 @@ class ReviewDialog extends StatelessWidget {
                 ),
               ],
             ),
-            Image.network( // TODO storage 연동, 사이즈 유지
-              '이미지 주소',
-              height: 100,
+            SizedBox(
               width: 100,
+              height: 100,
+              child: image,
             ),
             Row(
               children: [
@@ -117,7 +117,7 @@ class ReviewDialog extends StatelessWidget {
                               "유*석",
                             style: GmarketSans24,
                           ),
-                          Row(
+                          const Row(
                             children: [
                               Icon(Icons.star),
                               Icon(Icons.star),
@@ -152,7 +152,7 @@ class ReviewDialog extends StatelessWidget {
                             "김*빈",
                             style: GmarketSans24,
                           ),
-                          Row(
+                          const Row(
                             children: [
                               Icon(Icons.star),
                               Icon(Icons.star),
@@ -187,7 +187,7 @@ class ReviewDialog extends StatelessWidget {
                             "안*진",
                             style: GmarketSans24,
                           ),
-                          Row(
+                          const Row(
                             children: [
                               Icon(Icons.star),
                               Icon(Icons.star),
