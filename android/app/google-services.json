@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "930942382028",
+    "project_id": "sogra-4d8b4",
+    "storage_bucket": "sogra-4d8b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930942382028:android:bd4471fb494ac7831c3769",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEUVH3IXfpd5C43PlXwSb165fzxPAVY38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
