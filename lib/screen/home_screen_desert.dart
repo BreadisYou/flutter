@@ -57,7 +57,7 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                       left: 0,
                       child: Container(
                         height: _screenheight * 0.33,
-                        width: _screenwidth - 20,
+                        width: _screenwidth - 20, //TODO firebase에서 Image 가져와야함
                       ),
                     ),
                     Positioned(
@@ -78,12 +78,16 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                         ),
                       ),
                     ),
-                    ElevatedButton(
-                      onPressed: ,
-                      child: Image.asset(
-                        'assets/image/desert.png',
-                        width: 100,
-                        height: 100,
+                    Positioned(
+                      top: 10,
+                      right : 0,
+                      child: ElevatedButton(
+                        onPressed: (){}, //TODO Navigtor To HomeScreenBread()
+                        child: Image.asset(
+                          'assets/image/bread.png',
+                          width: 100,
+                          height: 100,
+                        ),
                       ),
                     ),
                   ],
