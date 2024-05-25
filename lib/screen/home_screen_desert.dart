@@ -40,6 +40,7 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
               right: 10,
             ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -89,24 +90,58 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                       Positioned(
                         top: 10,
                         right : 0,
-                        child: ElevatedButton(
-                          onPressed: (){
+                        child:  GestureDetector(
+                          onTap: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
+                              context,
+                              MaterialPageRoute(
                                 builder: (context) => HomeScreenBread(),
                               ),
                             );
-                          }, //TODO Navigtor To HomeScreenBread()
+                          },
                           child: Image.network(
                             'https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/bread_button.png?alt=media&token=6ece360a-a51e-417d-a748-79f0dfffde37',
-                            width: 100,
-                            height: 100,
+                            width: 50,
+                            height: 50,
                           ),
                         ),
                       ),
                     ],
                   ),
+                ),
+                Container(
+                  height: _screenheight * 0.11,
+                  width: _screenwidth - 30,
+                  color: colorLightBrown,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/review.png',
+                        width: 20,
+                        height: 20,
+                      ),
+                      Text(
+                        "리뷰 남기기",
+                        style: GmarketSans24,
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      height: _screenheight * 0.22,
+                      width: _screenwidth / 2 - 30,
+                      color: const Color(0xffFFEFB5),
+                    ),
+                    Container(
+                      height: _screenheight * 0.22,
+                      width: _screenwidth / 2 - 30,
+                      color: const Color(0xffDBFFBE),
+                    )
+                  ],
                 ),
               ],
             ),

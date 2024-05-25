@@ -42,10 +42,10 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     MyLogo(size: _screenheight * 0.065),
-                    SizedBox(),
+                    SizedBox(width: 20,),
                     Text(
                       "빵셔틀",
-                      style: GmarketSans12gr,
+                      style: GmarketSans24gr,
                     ),
                   ],
                 ),
@@ -100,8 +100,8 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                           },
                           child: Image.network(
                             'https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/dessert_button.png?alt=media&token=bf08d5a5-5ffb-49ba-860f-49da87e1207c',
-                            width: 20,
-                            height: 20,
+                            width: 50,
+                            height: 50,
                           ),
                         ),
                       ),
@@ -141,7 +141,7 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                       color: const Color(0xffDBFFBE),
                     )
                   ],
-                )
+                ),
               ],
             ),
           ),

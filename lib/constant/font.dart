@@ -27,3 +27,10 @@ TextStyle GmarketSans24 = const TextStyle(
   fontSize: 24,
   fontWeight: FontWeight.bold,
 );
+
+TextStyle GmarketSans24gr = const TextStyle(
+  fontFamily: "GmarketSans",
+  color: Color(0xff807E79),
+  fontSize: 24,
+  fontWeight: FontWeight.bold,
+);
