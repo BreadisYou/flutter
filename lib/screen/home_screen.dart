@@ -79,9 +79,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: onPressed,
+                      onPressed: ,
                       child: Image.asset(
-                        'assets/desert.png',
+                        'assets/image/desert.png',
                         width: 100,
                         height: 100,
                       ),
