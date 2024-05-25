@@ -64,4 +64,11 @@ class FirebaseRepository {
     render();
     return true;
   }
+
+  void initializeUser(Function render) {
+    firebaseAuth.authStateChanges().listen((user) {
+      loggedUser = user;
+      render();
+    });
+  }
 }

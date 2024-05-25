@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -43,9 +41,13 @@ class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    User? loggedUser = context.watch<FirebaseProvider>().getUser();
-    print("test");
+    final FirebaseProvider firebaseProvider = context.watch<FirebaseProvider>();
 
-    return loggedUser == null ? SignIn() : HomeScreenBread();
+    if (firebaseProvider.getUser() == null) {
+      return SignIn();
+    }
+    return HomeScreenBread();
   }
 }
+
+// --web-renderer html

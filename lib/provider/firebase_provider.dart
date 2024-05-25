@@ -7,7 +7,13 @@ class FirebaseProvider with ChangeNotifier {
 
   FirebaseProvider({
     required this.firebaseRepository,
-  });
+  }) {
+    _initializeUser();
+  }
+
+  void _initializeUser() {
+    firebaseRepository.initializeUser(render);
+  }
 
   User? getUser() {
     return firebaseRepository.getUser();
