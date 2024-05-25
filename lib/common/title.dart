@@ -10,11 +10,11 @@ class MyTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text("Blue Ocean", style: TextStyle(
+    return Text("빵셔틀", style: TextStyle(
       fontSize: fontSize,
       fontWeight: fontWeight,
       color: Constant.COLOR,
-      fontFamily: "Inria Sans",
+      fontFamily: "GmarketSans",
     ),);
   }
 }
