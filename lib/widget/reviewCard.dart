@@ -27,7 +27,7 @@ class ReviewCard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.network( // TODO storage 연동
+            Image.network( //TODO storage 연동
               '이미지 주소',
               height: 100,
               width: 100,

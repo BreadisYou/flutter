@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:sogra/provider/firebase_provider.dart';
 import 'package:sogra/repository/firebase_repository.dart';
 import 'package:sogra/screen/home_screen_bread.dart';
+import 'package:sogra/screen/storeIntro.dart';
 import 'auth/signin.dart';
 import 'firebase_options.dart';
 
@@ -31,7 +32,7 @@ void main() async {
         ),
       ],
       child: MaterialApp(
-        home: HomeScreenBread(),
+        home: StoreIntro(),
       ),
   ));
 }

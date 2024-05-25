@@ -33,6 +33,7 @@ flutter:
     - assets/logo.png
     - assets/map.png
     - assets/review.png
+    - assets/image/
 
   fonts:
     - family: GmarketSans
