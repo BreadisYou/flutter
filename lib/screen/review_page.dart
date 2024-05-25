@@ -31,9 +31,8 @@ class _ReviewPageState extends State<ReviewPage> {
     return Image.asset('assets/logo.png');
   }
   
-  Future<List> _fetchWeekly() async {
-    //final FirebaseFirestore firebaseFirestore = context.read<FirebaseRepository>().firebaseFirestore;
-    final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+  Future<List> _fetchWeekly(BuildContext context) async {
+    final FirebaseFirestore firebaseFirestore = context.read<FirebaseRepository>().firebaseFirestore;
 
     List<dynamic> res = [];
     var data = firebaseFirestore.collection("weekly_${widget.type}").get();
@@ -91,7 +90,7 @@ class _ReviewPageState extends State<ReviewPage> {
           child: Padding(
             padding: const EdgeInsets.all(15),
             child: FutureBuilder(
-              future: _fetchWeekly(),
+              future: _fetchWeekly(context),
               builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                 if (snapshot.hasData == false || snapshot.hasError) {
                   return const CircularProgressIndicator();
