@@ -23,7 +23,6 @@ void main() async {
           create: (context) => FirebaseRepository(
             firebaseFirestore: FirebaseFirestore.instance,
             firebaseAuth: FirebaseAuth.instance,
-            firebaseStorage: FirebaseStorage.instance,
           ),
         ),
         ChangeNotifierProvider<FirebaseProvider>(

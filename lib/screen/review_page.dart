@@ -23,10 +23,17 @@ class ReviewPage extends StatefulWidget {
 }
 
 class _ReviewPageState extends State<ReviewPage> {
+
+  Image getImage(String? imagePath) {
+    if (imagePath != null && imagePath.length > 10) {
+      return Image.network(imagePath);
+    }
+    return Image.asset('assets/logo.png');
+  }
   
-  Future<List> _fetchWeekly(context) async {
-    final FirebaseFirestore firebaseFirestore = context.read<FirebaseRepository>().firebaseFirestore;
-    final FirebaseStorage firebaseStorage = context.read<FirebaseRepository>().firebaseStorage;
+  Future<List> _fetchWeekly() async {
+    //final FirebaseFirestore firebaseFirestore = context.read<FirebaseRepository>().firebaseFirestore;
+    final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
     List<dynamic> res = [];
     var data = firebaseFirestore.collection("weekly_${widget.type}").get();
@@ -35,18 +42,25 @@ class _ReviewPageState extends State<ReviewPage> {
       for (var e in value.docs[value.docs.length-1].data()['docs']) {
         filter.add(e);
       }
-      firebaseFirestore.collection(widget.type)
-          .where("doc", whereIn: filter)
-          .get()
-          .then((e) {
-        for (var element in e.docs) {
-          res.add(element);
-        }
-      });
     });
-
-    var img = firebaseStorage.ref("${widget.type}/");
-    return res;
+    await firebaseFirestore.collection(widget.type)
+        .where("doc", whereIn: filter)
+        .get()
+        .then((e) {
+      for (var element in e.docs) {
+        res.add(element);
+      }
+    });
+    List<ReviewCard> children = List.empty(growable: true);
+    for (var m in res) {
+      children.add(
+          ReviewCard(height: 100, width: 100,
+              image: getImage(m['imagePath']),
+              store: m['store'], name: m['name'],
+          )
+      );
+    }
+    return children;
   }
 
   @override
@@ -77,21 +91,14 @@ class _ReviewPageState extends State<ReviewPage> {
           child: Padding(
             padding: const EdgeInsets.all(15),
             child: FutureBuilder(
-              future: _fetchWeekly(context),
+              future: _fetchWeekly(),
               builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                 if (snapshot.hasData == false || snapshot.hasError) {
                   return const CircularProgressIndicator();
                 }
-                List<ReviewCard> children = List.empty(growable: true);
-                for (var m in snapshot.data) {
-                  children.add(
-                    ReviewCard(height: 100, width: 100, image: Image.asset("assets/logo.png"), store: m['store'], name: m['name'])
-                  );
-                }
+
                 return ListView(
-                    children: [
-                    //TODO CARD 추가하기
-                    ],
+                    children: snapshot.data,
                   );
                 },
               ),

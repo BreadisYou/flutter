@@ -27,7 +27,11 @@ class ReviewCard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            image,
+            SizedBox(
+              width: 50,
+              height: 50,
+              child: image,
+            ),
             Text(
               '$store-$name',
               style: GmarketSans12,

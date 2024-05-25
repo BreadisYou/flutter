@@ -5,7 +5,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 class FirebaseRepository {
 
   final FirebaseFirestore firebaseFirestore;
-  final FirebaseStorage firebaseStorage;
   final FirebaseAuth firebaseAuth;
 
   User? loggedUser;
@@ -13,7 +12,6 @@ class FirebaseRepository {
   FirebaseRepository({
     required this.firebaseAuth,
     required this.firebaseFirestore,
-    required this.firebaseStorage,
   });
 
   User? getUser() {
