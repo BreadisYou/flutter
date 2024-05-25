@@ -6,7 +6,6 @@ import 'package:sogra/common/NoAnimation.dart';
 import 'package:sogra/common/logo.dart';
 import 'package:sogra/constant/colors.dart';
 import 'package:sogra/constant/font.dart';
-import 'package:sogra/main.dart';
 import 'package:sogra/provider/firebase_provider.dart';
 import 'package:sogra/widget/image_slider.dart';
 
