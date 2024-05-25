@@ -50,19 +50,19 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                   ],
                 ),
                 Text(
-                  "이번 주 추천 빵",
+                  "이주의 빵",
                   style: GmarketSans24,
                 ),
                 SizedBox(
-                  height: _screenwidth * 0.33,
+                  height: _screenheight * 0.33,
                   width: _screenwidth - 30,
                   child: Stack(
                     children: [
                       Positioned(
                         child: Container(
                           height: _screenheight * 0.33,
-                          width: _screenwidth - 20, //TODO firebase에서 Image 가져와야함
-                          child: Image.network( // 임시 이미지 링크
+                          width: _screenwidth - 20,
+                          child: Image.network(
                             'https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/bread_2024_4.png?alt=media&token=401f4532-518d-4c0f-b5d1-1068209e9037',
                             fit: BoxFit.cover,
                           ),
@@ -74,13 +74,13 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                         child: Container(
                           height: _screenheight * 0.07,
                           width: _screenwidth - 30,
-                          color: Colors.black..withOpacity(0.5),
+                          color: Colors.black.withOpacity(0.2),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
                                 "구독하기",
-                                style: GmarketSans12,
+                                style: GmarketSans24,
                               ),
                             ],
                           ),
@@ -100,8 +100,8 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                           },
                           child: Image.network(
                             'https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/dessert_button.png?alt=media&token=bf08d5a5-5ffb-49ba-860f-49da87e1207c',
-                            width: 50,
-                            height: 50,
+                            width: 70,
+                            height: 70,
                           ),
                         ),
                       ),
@@ -111,7 +111,10 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                 Container(
                   height: _screenheight * 0.11,
                   width: _screenwidth - 30,
-                  color: colorLightBrown,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: colorLightBrown,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -133,12 +136,18 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                     Container(
                       height: _screenheight * 0.22,
                       width: _screenwidth / 2 - 30,
-                      color: const Color(0xffFFEFB5),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: const Color(0xffFFEFB5),
+                      ),
                     ),
                     Container(
                       height: _screenheight * 0.22,
                       width: _screenwidth / 2 - 30,
-                      color: const Color(0xffDBFFBE),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: const Color(0xffDBFFBE),
+                      ),
                     )
                   ],
                 ),
