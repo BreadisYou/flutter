@@ -63,9 +63,9 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                         left: 0,
                         child: Container(
                           height: _screenheight * 0.33,
-                          width: _screenwidth - 30, //TODO firebase에서 Image 가져와야함
+                          width: _screenwidth - 30, //TODO storage 연동
                           child: Image.network( // 임시 이미지 링크
-                            'https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/dessert_2024_4.png?alt=media&token=a6ce75d6-101f-4f70-926d-25c82c120452',
+                            'https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/weekly%2Fweekly_dessert_1.png?alt=media&token=b7160837-f271-4a02-9e91-2816ddcc3859',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -142,6 +142,14 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                         borderRadius: BorderRadius.circular(20),
                         color: const Color(0xffFFEFB5),
                       ),
+                      child: ImageSlider(
+                        height: _screenheight * 0.22, // 부모 Container와 동일
+                        width: _screenwidth / 2 - 30, // 부모 Container와 동일
+                        children: [ // TODO Storage 연동
+                          Image.network('https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/best%2Fdessert_2024_4.png?alt=media&token=90120b6b-6225-4465-91b1-11b7324c0ebd'),
+                        ],
+                      ),
+
                     ),
                     Container(
                       height: _screenheight * 0.22,

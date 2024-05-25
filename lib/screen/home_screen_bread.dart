@@ -62,8 +62,8 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                         child: Container(
                           height: _screenheight * 0.33,
                           width: _screenwidth - 20,
-                          child: Image.network(
-                            'https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/bread_2024_4.png?alt=media&token=401f4532-518d-4c0f-b5d1-1068209e9037',
+                          child: Image.network( // TODO storage 연동
+                            'https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/weekly%2Fweekly_bread_1.png?alt=media&token=f9ab0534-2473-458f-b4eb-7014a93ffadc',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -139,6 +139,13 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: const Color(0xffFFEFB5),
+                      ),
+                      child: ImageSlider(
+                        height: _screenheight * 0.22, // 부모 Container와 동일
+                        width: _screenwidth / 2 - 30, // 부모 Container와 동일
+                        children: [ // TODO Storage 연동
+                          Image.network('https://firebasestorage.googleapis.com/v0/b/sogra-4d8b4.appspot.com/o/best%2Fbread_2024_4.png?alt=media&token=844e6cbc-05b8-4383-818d-e759ba86827f'),
+                        ],
                       ),
                     ),
                     Container(
