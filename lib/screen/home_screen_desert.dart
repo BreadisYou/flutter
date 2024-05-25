@@ -6,14 +6,14 @@ import 'package:sogra/constant/font.dart';
 import 'package:sogra/main.dart';
 import 'package:sogra/widget/image_slider.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomeScreenDesert extends StatefulWidget {
+  const HomeScreenDesert({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreenDesert> createState() => _HomeScreenDesertState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenDesertState extends State<HomeScreenDesert> {
   @override
   Widget build(BuildContext context) {
     final double _screenheight = MediaQuery
