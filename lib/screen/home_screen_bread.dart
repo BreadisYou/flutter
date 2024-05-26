@@ -68,14 +68,6 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
     return children;
   }
 
-  void _showMapDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return MapDialog();
-      },
-    );
-  }
   void showCustomDialog(BuildContext context) {
 
     final double _screenheight = MediaQuery
@@ -183,32 +175,27 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                   ],
                 ),
 
-                GestureDetector(
-                  onTap: () {
-                    _showMapDialog(context);
-                  },
-                  child: Container(
-                    height: 60,
-                    width: 300,
-                    decoration: BoxDecoration(
-                      color: colorLightBrown,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (subscribe)
-                          Text(
-                            "빵 구독하기",
-                            style: GmarketSans24,
-                          ),
-                        if (!subscribe)
-                          Text(
-                            "구독 변경하기",
-                            style: GmarketSans24,
-                          ),
-                      ],
-                    ),
+                Container(
+                  height: 60,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    color: colorLightBrown,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (subscribe)
+                        Text(
+                          "빵 구독하기",
+                          style: GmarketSans24,
+                        ),
+                      if (!subscribe)
+                        Text(
+                          "구독 변경하기",
+                          style: GmarketSans24,
+                        ),
+                    ],
                   ),
                 ),
               ],

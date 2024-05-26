@@ -5,6 +5,15 @@ import 'package:sogra/screen/storeIntro.dart';
 import '../common/NoAnimation.dart';
 
 class MapDialog extends StatelessWidget {
+  MapDialog({
+    super.key,
+    required this.image,
+    required this.store,
+    required this.name,
+  });
+  final Image image;
+  final String store, name;
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -29,11 +38,7 @@ class MapDialog extends StatelessWidget {
                 ),
               ],
             ),
-            Image.asset(
-              'assets/image/bbang.png',
-              width: 200,
-              height: 200,
-            ),
+            image,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -51,14 +56,14 @@ class MapDialog extends StatelessWidget {
                 ),
               ],
             ),SizedBox(height: 10,),
-            Text("크림소금빵",
+            Text(name,
               style: TextStyle(
                 fontFamily: "GmarketSans",
                 color: const Color(0xff000000),
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
               ),
-            ),Text("민석이네 빵집",
+            ),Text(store,
               style: TextStyle(
                 fontFamily: "GmarketSans",
                 color: const Color(0xff878787),

@@ -25,7 +25,7 @@ class ReviewCardMap extends StatelessWidget {
       showDialog(
         context: context,
         builder: (BuildContext context) {
-          return MapDialog();
+          return MapDialog(name: name, store: store, image: image);
         },
       );
     }
