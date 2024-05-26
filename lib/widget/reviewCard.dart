@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:sogra/constant/font.dart';
+import 'package:sogra/widget/reviewDialog.dart';
 
 class ReviewCard extends StatelessWidget {
   const ReviewCard({
@@ -18,7 +19,11 @@ class ReviewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {}, //TODO ontap 하면 dialog띄우게 해야함
+      onTap: () {
+        showDialog(barrierDismissible: false, context: context, builder: (builder) {
+          return ReviewDialog(image: image, store: store, name: name, score: 5);
+        });
+      },
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
@@ -28,14 +33,15 @@ class ReviewCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              width: 50,
-              height: 50,
+              width: 100,
+              height: 100,
               child: image,
             ),
             Text(
-              '$store-$name',
-              style: GmarketSans12,
+              '$store - $name',
+              style: GmarketSans24,
             ),
+            SizedBox(width: 50,),
           ],
         ),
       ),
