@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../constant/colors.dart';
 import 'constant.dart';
 
 class MyTitle extends StatelessWidget {
@@ -13,7 +14,7 @@ class MyTitle extends StatelessWidget {
     return Text("빵셔틀", style: TextStyle(
       fontSize: fontSize,
       fontWeight: fontWeight,
-      color: Constant.COLOR,
+      color: colorLightBrown,
       fontFamily: "GmarketSans",
     ),);
   }

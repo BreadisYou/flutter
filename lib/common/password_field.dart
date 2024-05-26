@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constant/colors.dart';
+
 class PasswordField extends StatefulWidget {
 
   final FormFieldSetter<String> onSaved;
@@ -37,15 +39,15 @@ class _PasswordFieldState extends State<PasswordField> {
           labelText: "비밀번호",
           hintText: widget.hint,
           focusedBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            borderSide: BorderSide(width: 1, color: Colors.deepPurpleAccent),
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderSide: BorderSide(width: 1, color: colorLightBrown),
           ),
           enabledBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            borderSide: BorderSide(width: 1, color: Colors.blueAccent),
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderSide: BorderSide(width: 1, color: colorLightBrown),
           ),
           border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+            borderRadius: BorderRadius.all(Radius.circular(8)),
           ),
           suffixIcon: IconButton(
             icon: Icon(passwordVisible
@@ -60,6 +62,7 @@ class _PasswordFieldState extends State<PasswordField> {
             },
           ),
         ),
+        cursorColor: colorLightBrown,
         keyboardType: TextInputType.visiblePassword,
         textInputAction: TextInputAction.done,
       ),
