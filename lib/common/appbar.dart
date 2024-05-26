@@ -33,7 +33,6 @@ class MyAppBar extends StatelessWidget {
     );
   }
 }
-
 /*
 
 appBar: const PreferredSize(

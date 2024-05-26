@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:webview_flutter_android/webview_flutter_android.dart';
+
 
 
 import '../constant/colors.dart';
@@ -18,12 +17,16 @@ class StoreIntro extends StatefulWidget {
 
 class _StoreIntroState extends State<StoreIntro> {
 
-  late WebViewController _webViewController;
-
   @override
   Widget build(BuildContext context) {
-    final double _screenheight = MediaQuery.of(context).size.height;
-    final double _screenwidth = MediaQuery.of(context).size.width;
+    final double _screenheight = MediaQuery
+        .of(context)
+        .size
+        .height;
+    final double _screenwidth = MediaQuery
+        .of(context)
+        .size
+        .width;
 
     return SafeArea(
       child: Scaffold(
@@ -109,18 +112,18 @@ class _StoreIntroState extends State<StoreIntro> {
                       children: [
                         Row(
                           children: [
-                            SizedBox(width: 16,),
+                            SizedBox(width: 12,),
                             Image.asset(
                               'assets/image/local.png',
-                              width: 30,
-                              height: 30,
+                              width: 24,
+                              height: 24,
                             ),
                             SizedBox(width: 10,),
                             Text("대전광역시 유성구 대학로 99 기숙사 11동 402호",
                               style: TextStyle(
                                 fontFamily: "GmarketSans",
                                 color: Colors.black,
-                                fontSize: 20,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -129,38 +132,38 @@ class _StoreIntroState extends State<StoreIntro> {
                         SizedBox(height: 16,),
                         Row(
                           children: [
-                            SizedBox(width: 16,),
+                            SizedBox(width: 12,),
                             Image.asset(
                               'assets/image/time.png',
-                              width: 30,
-                              height: 30,
+                              width: 24,
+                              height: 24,
                             ),
                             SizedBox(width: 10,),
                             Text("영업중, 00:00 ~ 24:00",
                               style: TextStyle(
                                 fontFamily: "GmarketSans",
                                 color: Colors.black,
-                                fontSize: 20,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 16,),
+                        SizedBox(height: 12,),
                         Row(
                           children: [
                             SizedBox(width: 16,),
                             Image.asset(
                               'assets/image/tel.png',
-                              width: 30,
-                              height: 30,
+                              width: 24,
+                              height: 24,
                             ),
                             SizedBox(width: 10,),
                             Text("010 - 3982 - 4697",
                               style: TextStyle(
                                 fontFamily: "GmarketSans",
                                 color: Colors.black,
-                                fontSize: 20,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -177,10 +180,5 @@ class _StoreIntroState extends State<StoreIntro> {
         ),
       ),
     );
-  }
-
-  Future<void> _loadHtmlFromAssets() async {
-    String fileText = await rootBundle.loadString('assets/kakao_map.html');
-    _webViewController.loadUrl(Uri.dataFromString(fileText, mimeType: 'kakao_map/html', encoding: Encoding.getByName('utf-8')).toString());
   }
 }

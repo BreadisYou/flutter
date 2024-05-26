@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:sogra/constant/font.dart';
 import 'package:sogra/widget/reviewDialog.dart';
 
-class ReviewCard extends StatelessWidget {
-  const ReviewCard({
+import 'mapdialog.dart';
+
+class ReviewCardMap extends StatelessWidget {
+  const ReviewCardMap({
     super.key,
     required this.height,
     required this.width,
@@ -18,11 +20,19 @@ class ReviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    void _showMapDialog(BuildContext context) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return MapDialog();
+        },
+      );
+    }
+
     return GestureDetector(
       onTap: () {
-        showDialog(barrierDismissible: false, context: context, builder: (builder) {
-          return ReviewDialog(image: image, store: store, name: name, score: 5);
-        });
+        _showMapDialog(context);
       },
       child: Card(
         shape: RoundedRectangleBorder(

@@ -8,6 +8,8 @@ import 'package:sogra/common/logo.dart';
 import 'package:sogra/constant/colors.dart';
 import 'package:sogra/constant/font.dart';
 import 'package:sogra/provider/firebase_provider.dart';
+import 'package:sogra/screen/bbang.dart';
+import 'package:sogra/screen/mapPage.dart';
 import 'package:sogra/screen/review_page.dart';
 import 'package:sogra/widget/image_slider.dart';
 
@@ -353,30 +355,35 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      height: _screenheight * 0.22,
-                      width: _screenwidth / 2 - 30,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: whiteColor,
-                      ),
-                      child: FutureBuilder(
-                        future: _fetchData(context),
-                        builder: (BuildContext builder, AsyncSnapshot<dynamic> snapshot) {
-                          if (snapshot.hasData == false || snapshot.hasError) {
-                            return const CircularProgressIndicator();
-                          }
-                          return ImageSlider(
-                            height: _screenheight * 0.22, // 부모 Container와 동일
-                            width: _screenwidth / 2 - 30, // 부모 Container와 동일
-                            children: snapshot.data,
-                          );
-                        },
-                      ),
-                    ),
                     GestureDetector(
                       onTap: () {
-                        //
+                        Navigator.push(context, NoAnimationRouteBuilder(builder: (builder) => Bbang(type: "bread")));
+                      },
+                      child: Container(
+                        height: _screenheight * 0.22,
+                        width: _screenwidth / 2 - 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: whiteColor,
+                        ),
+                        child: FutureBuilder(
+                          future: _fetchData(context),
+                          builder: (BuildContext builder, AsyncSnapshot<dynamic> snapshot) {
+                            if (snapshot.hasData == false || snapshot.hasError) {
+                              return const CircularProgressIndicator();
+                            }
+                            return ImageSlider(
+                              height: _screenheight * 0.22, // 부모 Container와 동일
+                              width: _screenwidth / 2 - 30, // 부모 Container와 동일
+                              children: snapshot.data,
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    GestureDetector (
+                      onTap: () {
+                        Navigator.push(context, NoAnimationRouteBuilder(builder: (builder) => MapPage()));
                       },
                       child: Container(
                         height: _screenheight * 0.22,

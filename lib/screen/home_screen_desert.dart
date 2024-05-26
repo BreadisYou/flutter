@@ -13,6 +13,8 @@ import 'package:sogra/screen/home_screen_bread.dart';
 import 'package:sogra/screen/review_page.dart';
 import 'package:sogra/widget/image_slider.dart';
 
+import 'mapPage.dart';
+
 class HomeScreenDesert extends StatefulWidget {
   const HomeScreenDesert({super.key});
 
@@ -356,7 +358,7 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        //
+                        Navigator.push(context, NoAnimationRouteBuilder(builder: (builder) => MapPage()));
                       },
                       child: Container(
                         height: _screenheight * 0.22,

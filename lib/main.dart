@@ -31,6 +31,7 @@ void main() async {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Main(),
       ),
   ));
@@ -42,7 +43,6 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final FirebaseProvider firebaseProvider = context.watch<FirebaseProvider>();
 
     if (firebaseProvider.getUser() == null) {
