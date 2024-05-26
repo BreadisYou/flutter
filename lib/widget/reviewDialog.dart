@@ -58,9 +58,6 @@ class ReviewDialog extends StatelessWidget {
             ),
             Row(
               children: [
-                const Icon(Icons.star,
-                size: 20,
-                ),
                 Text(
                   '$score',
                   style: const TextStyle(
