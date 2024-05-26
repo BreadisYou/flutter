@@ -38,7 +38,11 @@ class MapDialog extends StatelessWidget {
                 ),
               ],
             ),
-            image,
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: image,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -81,8 +85,8 @@ class MapDialog extends StatelessWidget {
                 );
               },
               child: Container(
-                width: 300,
-                height: 300,
+                width: 275,
+                height: 275,
                 child: Image.asset(
                   'assets/image/Group_14.png',
                   fit: BoxFit.fill,
