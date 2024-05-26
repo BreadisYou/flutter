@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:webview_flutter_android/webview_flutter_android.dart';
+
 
 import '../constant/colors.dart';
+
+import 'dart:async';
 
 class StoreIntro extends StatefulWidget {
   const StoreIntro({super.key});
@@ -11,18 +18,12 @@ class StoreIntro extends StatefulWidget {
 
 class _StoreIntroState extends State<StoreIntro> {
 
+  late WebViewController _webViewController;
+
   @override
   Widget build(BuildContext context) {
-
-    final double _screenheight = MediaQuery
-        .of(context)
-        .size
-        .height;
-    final double _screenwidth = MediaQuery
-        .of(context)
-        .size
-        .width;
-
+    final double _screenheight = MediaQuery.of(context).size.height;
+    final double _screenwidth = MediaQuery.of(context).size.width;
 
     return SafeArea(
       child: Scaffold(
@@ -39,7 +40,7 @@ class _StoreIntroState extends State<StoreIntro> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            centerTitle: true, // 제목을 가운데로 정렬
+            centerTitle: true,
             backgroundColor: Colors.white,
             elevation: 0,
           ),
@@ -176,5 +177,10 @@ class _StoreIntroState extends State<StoreIntro> {
         ),
       ),
     );
+  }
+
+  Future<void> _loadHtmlFromAssets() async {
+    String fileText = await rootBundle.loadString('assets/kakao_map.html');
+    _webViewController.loadUrl(Uri.dataFromString(fileText, mimeType: 'kakao_map/html', encoding: Encoding.getByName('utf-8')).toString());
   }
 }

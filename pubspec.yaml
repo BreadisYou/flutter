@@ -18,6 +18,8 @@ dependencies:
   carousel_slider: ^4.2.1
   provider: ^6.1.2
   firebase_storage: ^11.7.6
+  webview_flutter: ^2.0.13
+  webview_flutter_android: ^3.16.2
 
 
 dev_dependencies:
@@ -36,6 +38,8 @@ flutter:
     - assets/map.png
     - assets/review.png
     - assets/image/
+    - assets/kakao_map.html
+
 
   fonts:
     - family: GmarketSans
