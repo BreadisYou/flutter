@@ -128,7 +128,7 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                       ),
                       child: Center(
                         child: Text(
-                          '네쪽 마늘빵 X 1',
+                          '소금빵 X 1',
                           style: GmarketSans24,
                         ),
                       ),
@@ -143,7 +143,7 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                       ),
                       child: Center(
                         child: Text(
-                          '팥생크림빵 X 1',
+                          '슈크림빵 X 1',
                           style: GmarketSans24,
                         ),
                       ),
@@ -158,7 +158,7 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                       ),
                       child: Center(
                         child: Text(
-                          '초코크림빵 X 1',
+                          '크로와상 X 1',
                           style: GmarketSans24,
                         ),
                       ),
@@ -173,7 +173,7 @@ class _HomeScreenBreadState extends State<HomeScreenBread> {
                       ),
                       child: Center(
                         child: Text(
-                          '쿠키크림빵 X 1',
+                          '모닝빵 X 1',
                           style: GmarketSans24,
                         ),
                       ),

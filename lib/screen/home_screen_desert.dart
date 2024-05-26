@@ -118,7 +118,7 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                       ),
                       child: Center(
                         child: Text(
-                          '나소진 원픽 망고시루 X 1',
+                          '블루 케이크 X 1',
                           style: GmarketSans24,
                         ),
                       ),
@@ -133,7 +133,7 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                       ),
                       child: Center(
                         child: Text(
-                          '김동효 최애 마카롱 X 1',
+                          '용감한 쿠키 X 1',
                           style: GmarketSans24,
                         ),
                       ),
@@ -148,7 +148,7 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                       ),
                       child: Center(
                         child: Text(
-                          '쌈@뽕한 케이크 X 1',
+                          '와플 X 1',
                           style: GmarketSans24,
                         ),
                       ),
@@ -163,7 +163,7 @@ class _HomeScreenDesertState extends State<HomeScreenDesert> {
                       ),
                       child: Center(
                         child: Text(
-                          '성심당 옆가게 디저트 X 1',
+                          '김동효 최애 망고사고 X 1',
                           style: GmarketSans24,
                         ),
                       ),
